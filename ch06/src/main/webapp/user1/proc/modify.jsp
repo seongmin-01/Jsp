@@ -43,5 +43,5 @@
 	}
 	
 	//목록 이동
-	response.sendRedirect("../user1/list.jsp");
+	response.sendRedirect("../list.jsp");
 %>

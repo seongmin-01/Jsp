@@ -10,7 +10,7 @@
 	<a href="../1.jdbc.jsp">처음으로</a>
 	<a href="./list.jsp">목록이동</a>
 	
-	<form action="../proc/register.jsp" method="post">
+	<form action="./proc/register.jsp" method="post">
 		<table border="1">
 			<tr>
 				<td>아이디</td>
