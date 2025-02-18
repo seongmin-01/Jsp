@@ -20,7 +20,11 @@ public enum UserService {
 		return dao.selectUser(no);
 	}
 	
-	public List<UserDTO> findAllUser() {
+	public UserDTO findUser(UserDTO dto) {
+		return dao.selectUser(dto);
+	}
+	
+	public List<UserDTO> findAllUser(String uid) {
 		return dao.selectAllUser();
 	}
 	
