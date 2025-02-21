@@ -29,5 +29,24 @@ public class SQL {
 				+ "`regip`=?,"
 				+ "`regDate`=NOW()";
 	
+	//article 
+	public static final String selectAll_article = "select `no`, `title`, `writer`,`wdate`,`hit` from `article`";
+	public static final String select_max_no = "select MAX(`no`) from `article`";
+	public static final String insert_article = "insert into `article` set "
+			+ "`title`=?,"
+			+ "`content`=?,"
+			+ "`file`=?,"
+			+ "`writer`=?,"
+			+ "`regip`=?,"
+			+ "`wdate`=NOW()";
+	
+	// file
+	public static final String insert_file = "insert into `file` set "
+			+ "`ano`=?,"
+			+ "`oName`=?,"
+			+ "`sName`=?,"
+			+ "`rdate`=NOW()";
+	
+	
 	
 }	

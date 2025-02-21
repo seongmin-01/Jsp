@@ -1,4 +1,9 @@
+<%@page import="java.util.List"%>
+<%@page import="kr.co.jboard.dto.ArticleDTO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="f" uri="jakarta.tags.functions" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +13,12 @@
 </head>
 <body>
     <div id="wrapper">
-    	<%@ include file = "./_header.jsp" %>
+        <%@ include file="./_header.jsp" %>
         <main id="article">
             <section class="list">
                 <nav>
                     <h1>글목록</h1>
-                    <form action="#">
+                    <form action="">
                         <input type="text" name="search" placeholder="제목 키워드, 글쓴이 검색">
                         <input type="submit" value="검색">
                     </form>
@@ -26,14 +31,19 @@
                         <th>글쓴이</th>
                         <th>날짜</th>
                         <th>조회</th>
-                    </tr>                    
-                    <tr>
-                        <td>1</td>
-                        <td><a href="./view.html">테스트 제목입니다.[3]</a></td>
-                        <td>길동이</td>
-                        <td>20-05-12</td>
-                        <td>12</td>
                     </tr>
+                  
+               <c:forEach var="dto" items="${list}">
+                    <tr>
+                        <td>${dto.getNo()}</td>
+                        <td><a href="/jboard/article/view.do">${dto.getTitle()}</a></td>
+                        <td>${dto.getWriter()}</td>
+                        <td>${dto.getWdate()}</td>
+                        <td>${dto.getHit()}</td>
+                    </tr>
+                </c:forEach>
+               
+                  
                 </table>
 
                 <div class="page">
@@ -43,9 +53,7 @@
                     <a href="#" class="num">3</a>
                     <a href="#" class="next">다음</a>
                 </div>
-
-                <a href="./write.html" class="btn btnWrite">글쓰기</a>
-                
+                <a href="/jboard/article/write.do" class="btn btnWrite">글쓰기</a>
             </section>
         </main>
         <%@ include file="./_footer.jsp" %>
